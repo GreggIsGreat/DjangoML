@@ -1,0 +1,26 @@
+{% load static %}
+{% include 'DjangoAPI/main.html' %}
+{% include 'DjangoAPI/nav.html' %}
+{% load crispy_forms_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+{% block content %}
+<center>
+<div class="container p-3 my-3 bg-white text-black">
+    <h1>Hi {{ user }}</h1>
+        <h4>Please fill in the form to see if you can buy something</h4>
+    <form method='POST' class="bootstrap">
+        {% csrf_token %}
+        {{ form|crispy  }}
+        <button type="submit" class="btn btn-primary" value="submit">Submit</button>
+    </form>
+</div>
+</center>
+{% endblock %}
+</body>
+</html>
